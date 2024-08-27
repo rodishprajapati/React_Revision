@@ -2,9 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { Button, Input, List, Modal } from "antd";
 import { MdDelete, MdOutlineModeNight } from "react-icons/md";
 
+// incase we need previous data and update state data,
+// setName((preName)=>prevName + "ram");
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -20,7 +23,7 @@ const TodoApp = () => {
     if (input.trim()) {
       setTodos([...todos, input]);
       setInput("");
-      console.log("heloo");
+      // console.log("heloo");
     }
   }, [input, todos]);
   const deleteItem = (index) => {
@@ -28,7 +31,7 @@ const TodoApp = () => {
   };
 
   //useMemo
-
+  console.log(filteredItems, "searchNote");
   //add note modal
   const showModal = () => {
     setIsModalOpen(true);
@@ -50,10 +53,24 @@ const TodoApp = () => {
       </div>
       <div className="flex flex-row justify-around">
         <div>
-          <Input
-            placeholder="Search Note"
-            className=" m-[10vh]  mt-[5vh] mb-2"
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(e) => {
+              if (e?.target?.value) {
+                setFilteredItems(
+                  todos?.filter((item) => item?.includes(e?.target?.value))
+                );
+              } else {
+                setFilteredItems([]);
+              }
+            }}
           />
+          <ul>
+            {filteredItems.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
         <div>
           <Button
@@ -65,6 +82,7 @@ const TodoApp = () => {
           </Button>
         </div>
       </div>
+
       <List
         bordered
         dataSource={todos}
