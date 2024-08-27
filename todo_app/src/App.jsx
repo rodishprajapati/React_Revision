@@ -20,6 +20,7 @@ const TodoApp = () => {
   }, [todos]);
 
   const handleAddTodo = useCallback(() => {
+    // debugger;
     if (input.trim()) {
       setTodos([...todos, input]);
       setInput("");
