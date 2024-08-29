@@ -32,7 +32,7 @@ const TodoApp = () => {
   };
 
   //useMemo
-  console.log(filteredItems, "searchNote");
+  // console.log(filteredItems, "searchNote");
   //add note modal
   const showModal = () => {
     setIsModalOpen(true);
@@ -56,6 +56,7 @@ const TodoApp = () => {
         <div>
           <input
             type="text"
+            className=" w-[60vw] mt-[5vh] mb-2"
             placeholder="Search..."
             onChange={(e) => {
               if (e?.target?.value) {
