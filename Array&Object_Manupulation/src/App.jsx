@@ -71,6 +71,7 @@ const App = () => {
         <h3>Sum of Data:</h3>
         {sumData}
       </div>
+      <div></div>
     </>
   );
 };

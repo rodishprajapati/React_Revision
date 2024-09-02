@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import { useState } from "react";
+// import UserInfo from "../Promise/Promise_all";
+// import Promise from "../Promise/Promise_all";
+import UserInfo from "../api/Promise/Promise_all";
+import DynamicRequest from "../api/Dynamic_method/DynamciRequest";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,24 +23,42 @@ const Home = () => {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <NavBar />
-      <h1>Home Page</h1>
-      <button onClick={handleNavigate}>Go to Details with State</button>
+    <>
+      <div style={{ padding: 20 }}>
+        <NavBar />
+        <h1>Home Page</h1>
+        <button onClick={handleNavigate}>Go to Details with State</button>
 
-      {/* useearchParams */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Enter search term"
-        />
-        <button type="submit">Search</button>
-      </form>
+        {/* useearchParams */}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Enter search term"
+          />
+          <button type="submit">Search</button>
+        </form>
 
-      <div>hello</div>
-    </div>
+        <div>hello</div>
+        <br />
+        <br />
+        {/* <File /> */}
+        <br />
+        <br />
+        <hr />
+        {/* <Post /> */}
+        <div>
+          <UserInfo />
+          <br />
+          <br />
+          <hr />
+          <br />
+          <br />
+          <DynamicRequest />
+        </div>
+      </div>
+    </>
   );
 };
 export default Home;
