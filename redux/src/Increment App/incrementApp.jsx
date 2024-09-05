@@ -5,7 +5,7 @@ import { decrement, increment } from "../actions";
 const IncrementApp = () => {
   // const [count, setCount] = useState(0);
   const state = useSelector((state) => state.changeTheNumber);
-  console.log(state, "state");
+  console.log(state.cartItems > 0, "state");
   const dispatch = useDispatch();
 
   return (
@@ -18,6 +18,7 @@ const IncrementApp = () => {
       <br />
       <div>
         <Button
+        disabled={}
           type="primary"
           className="mr-[2vw] ml-[2vw]"
           onClick={() => {

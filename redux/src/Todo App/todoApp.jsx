@@ -25,6 +25,9 @@ const TodoApp = () => {
   const cancelListHandle = () => {
     isAddTodoModal(false);
   };
+
+
+  
   return (
     <>
       <div>
@@ -40,11 +43,12 @@ const TodoApp = () => {
             Add Todo
           </Button>
 
-          <ul className="">
-            {todos.map((todo) => (
+          <ol type="1" className="">
+            {todos.map((todo,index) => (
               <li key={todo.id} className="grid grid-cols-2 mb-[2vh] ">
                 <div>
-                  {todo.id + "  "}
+                  {index +1} {""}
+                  {/* {todo.id + "  "} */}
                   {todo.content}{" "}
                 </div>
                 <Button
@@ -57,7 +61,7 @@ const TodoApp = () => {
                 </Button>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
       <Modal
