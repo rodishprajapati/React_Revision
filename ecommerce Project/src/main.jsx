@@ -1,20 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./tailwind.css";
-import store from "./store";
 import { Provider } from "react-redux";
-import IncrementApp from "./Increment App/incrementApp.jsx";
-import TodoApp from "./Todo App/todoApp.jsx";
+import store from "./redux/store";
+import App from "./App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <TodoApp/>
-      <br />
-      <br />
-      <hr />
-      <br />
-      <IncrementApp />
+      <App/>
+    
+
     </Provider>
+
   </StrictMode>
 );
