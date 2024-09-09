@@ -18,7 +18,6 @@ const IncrementApp = () => {
       <br />
       <div>
         <Button
-        disabled={}
           type="primary"
           className="mr-[2vw] ml-[2vw]"
           onClick={() => {
